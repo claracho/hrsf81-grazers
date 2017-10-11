@@ -1,5 +1,6 @@
 const express = require('express');
 const stub = require('./stubData.js');
+const db = require('../database/index');
 
 const router = express.Router();
 
@@ -27,21 +28,10 @@ router.route('/:userId')
 
 router.get('/:userId/group', (req, res) => {
   const userId = Number(req.params.userId);
-  let userGroup;
-  for (let i = 0; i < stub.userGroups.length; i += 1) {
-    if (stub.userGroups[i].userId === userId) {
-      userGroup = stub.userGroups[i];
-      break;
-    }
-  }
-  let group;
-  for (let i = 0; i < stub.groups.length; i += 1) {
-    if (stub.groups[i].id === userGroup.groupId) {
-      group = stub.groups[i];
-      break;
-    }
-  }
-  res.status(200).send(group);
+  db.getGroupByUser(userId)
+    .then(groupData => {
+      res.status(200).send(groupData.rows[0]);
+    });
 });
 
 module.exports = router;
