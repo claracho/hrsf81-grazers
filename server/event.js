@@ -10,7 +10,9 @@ router.use((req, res, next) => {
 
 router.route('/:eventId')
   .get((req, res) => {
-    res.status(200).send(stub.events[0]);
+    const eventId = Number(req.params.eventId);
+    db.getEvent(eventId)
+      .then(eventData => res.status(200).send(eventData.rows[0]));
   })
   .put((req, res) => {
     const updatedEventObj = req.body;
