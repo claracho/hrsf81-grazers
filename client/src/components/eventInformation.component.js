@@ -6,33 +6,35 @@ module.exports = {
   controller($http) {
     this.displayedSchedule = 'event';
 
-    this.getSchedule = eventId =>
-      $http({
-        method: 'GET',
-        url: `/schedule/${eventId}`
-      })
+    this.getSchedule = (eventId, groupId) => {
+      const options = groupId
+        ? { method: 'GET', url: `/schedule/${eventId}/${groupId}` }
+        : { method: 'GET', url: `/schedule/${eventId}` };
+      return $http(options)
         .then(response => response.data)
         .catch(console.error);
+    };
 
     this.$onInit = function init() {
       $http({
         method: 'GET',
         url: `/event/${this.eventId}`
       })
-        .then(response => {
+        .then((response) => {
           this.event = response.data;
           return this.getSchedule(this.eventId);
         })
-        .then((schedules) => {
-          this.eventSchedule = schedules;
+        .then((schedule) => {
+          this.eventSchedule = schedule;
         })
         .catch(console.error);
     };
 
     this.$onChanges = (changesObj) => {
       if (changesObj.group.currentValue) {
-        this.getSchedule(this.group.scheduleId)
+        this.getSchedule(this.eventId, this.group.id)
           .then((schedule) => {
+            console.log('client side group schedule', schedule);
             this.groupSchedule = schedule;
             this.displayedSchedule = schedule ? 'group' : 'event';
           })

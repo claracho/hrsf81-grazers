@@ -121,6 +121,19 @@ const getActivitiesByDay = scheduleId =>
     FROM activities
     WHERE activities.schedule_id = ${scheduleId}`);
 
+const getActivitiesByDayByGroup = (scheduleId, groupId) =>
+  pool.query(`(SELECT activities.*
+    FROM activities
+    WHERE activities.schedule_id = ${scheduleId})
+    INTERSECT
+    (SELECT activities.*
+    FROM activities
+    INNER JOIN group_activity
+    ON activities.id = group_activity.activity_id
+    INNER JOIN groups
+    ON group_activity.group_id = groups.id
+    WHERE group_activity.group_id = ${groupId})`);
+
 module.exports = {
   addUser,
   addEvent,
@@ -142,5 +155,6 @@ module.exports = {
   getGroupsByEvent,
   getEvent,
   getSchedulesByEvent,
-  getActivitiesByDay
+  getActivitiesByDay,
+  getActivitiesByDayByGroup
 };
