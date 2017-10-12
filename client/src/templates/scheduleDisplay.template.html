@@ -1,14 +1,14 @@
 <md-content flex>
   <md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom>
-    <md-tab ng-repeat="day in $ctrl.schedule.days track by $index">
+    <md-tab ng-repeat="day in $ctrl.schedule track by $index">
       <md-tab-label>{{day.date}}</md-tab-label>
       <md-tab-body>
         <md-list>
-          <md-list-item class="md-3-line" ng-repeat="appointment in day.timetable track by $index">
+          <md-list-item class="md-3-line" ng-repeat="activity in day.timetable track by $index">
             <div class="md-list-item-text">
-              <h4 class="md-subhead">Time: {{appointment.time}}</h4>
-              <h4 class="md-subhead">Activity: {{appointment.activity}}</h4>
-              <p class="md-body-2">Location: {{appointment.location}}</p>
+              <h4 class="md-subhead">Time: {{activity.time}}</h4>
+              <h4 class="md-subhead">Activity: {{activity.activity}}</h4>
+              <p class="md-body-2">Location: {{activity.location}}</p>
             </div>
           </md-list-item>
         </md-list>

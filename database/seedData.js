@@ -37,6 +37,72 @@ module.exports = {
       time: '12:00 PM to 1:30 PM',
       activity: 'Lunch',
       location: 'Grand Ballroom',
+      scheduleId: 1
+    },
+    {
+      time: '2:00 PM to 4:00 PM',
+      activity: 'Breakout Sessions I',
+      location: 'Blue, Green and Yellow Rooms',
+      scheduleId: 1
+    },
+    {
+      time: '4:30 PM to 6:30 PM',
+      activity: 'Breakout Sessions II',
+      location: 'Blue, Green and Yellow Rooms',
+      scheduleId: 1
+    },
+    {
+      time: '6:30 PM to 8:30 PM',
+      activity: 'Dinner',
+      location: 'Grand Ballroom',
+      scheduleId: 1
+    },
+    {
+      time: '9:00 PM to 11:30 PM',
+      activity: 'Movies Under the Stars',
+      location: 'Center Gardens',
+      scheduleId: 1
+    },
+    {
+      time: '9:00 AM to 10:00 AM',
+      activity: 'Continental Breakfast',
+      location: 'Grand Ballroom',
+      scheduleId: 2
+    },
+    {
+      time: '10:00 AM to 11:30 AM',
+      activity: 'Panel: Famous People',
+      location: 'Main Auditorium',
+      scheduleId: 2
+    },
+    {
+      time: '12:00 PM to 1:00 PM',
+      activity: 'Lunch',
+      location: 'Grand Ballroom',
+      scheduleId: 2
+    },
+    {
+      time: '2:00 PM to 6:00 PM',
+      activity: 'Art Exhibition',
+      location: 'Center Gardens',
+      scheduleId: 2
+    },
+    {
+      time: '3:00 PM to 4:30 PM',
+      activity: 'Tea Time',
+      location: 'Grand Ballroom',
+      scheduleId: 2
+    },
+    {
+      time: '6:00 PM to 8:00 PM',
+      activity: 'Dinner',
+      location: 'Grand Ballroom',
+      scheduleId: 2
+    },
+    {
+      time: '8:00 PM to 9:30 PM',
+      activity: 'Awards Ceremony',
+      location: 'Main Auditorium',
       scheduleId: 2
     }
   ],
@@ -70,20 +136,84 @@ module.exports = {
       activityId: 1
     },
     {
-      groupId: 1,
-      activityId: 2
+      groupId: 2,
+      activityId: 1
     },
     {
       groupId: 3,
-      activityId: 2
+      activityId: 1
     },
     {
-      groupId: 3,
-      activityId: 3
+      groupId: 4,
+      activityId: 2
     },
     {
       groupId: 2,
       activityId: 3
+    },
+    {
+      groupId: 1,
+      activityId: 4
+    },
+    {
+      groupId: 1,
+      activityId: 5
+    },
+    {
+      groupId: 3,
+      activityId: 6
+    },
+    {
+      groupId: 3,
+      activityId: 7
+    },
+    {
+      groupId: 2,
+      activityId: 7
+    },
+    {
+      groupId: 1,
+      activityId: 8
+    },
+    {
+      groupId: 4,
+      activityId: 8
+    },
+    {
+      groupId: 3,
+      activityId: 8
+    },
+    {
+      groupId: 2,
+      activityId: 9
+    },
+    {
+      groupId: 3,
+      activityId: 10
+    },
+    {
+      groupId: 2,
+      activityId: 11
+    },
+    {
+      groupId: 2,
+      activityId: 12
+    },
+    {
+      groupId: 1,
+      activityId: 12
+    },
+    {
+      groupId: 4,
+      activityId: 13
+    },
+    {
+      groupId: 4,
+      activityId: 14
+    },
+    {
+      groupId: 3,
+      activityId: 14
     }
   ],
 

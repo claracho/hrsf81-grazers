@@ -114,12 +114,12 @@ const getEvent = eventId =>
 const getSchedulesByEvent = eventId =>
   pool.query(`SELECT *
     FROM schedules
-    WHERE schedules.event_id = ${eventId}`);
+    WHERE schedules.event_id = ${eventId}`); // TODO: sort by date
 
 const getActivitiesByDay = scheduleId =>
   pool.query(`SELECT *
     FROM activities
-    WHERE activities.schedule_id = ${scheduleId}`);
+    WHERE activities.schedule_id = ${scheduleId}`); // TODO: sort by time
 
 const getActivitiesByDayByGroup = (scheduleId, groupId) =>
   pool.query(`(SELECT activities.*
@@ -132,7 +132,7 @@ const getActivitiesByDayByGroup = (scheduleId, groupId) =>
     ON activities.id = group_activity.activity_id
     INNER JOIN groups
     ON group_activity.group_id = groups.id
-    WHERE group_activity.group_id = ${groupId})`);
+    WHERE group_activity.group_id = ${groupId})`); // TODO: sort by time
 
 module.exports = {
   addUser,
